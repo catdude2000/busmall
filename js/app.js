@@ -1,8 +1,8 @@
 'use strict';
 console.log('js file is connected');
 
-const bag = {
+const product = function (name, picsource, timesshown) {
     name = 'r2bag',
-    filepath = url(https://raw.githubusercontent.com/DeltaVCode/cedarrapids-code-201d10/main/class-11/lab/assets/bag.jpg),
+    filepath = url,
     timesshown = 0,
-}
+};
