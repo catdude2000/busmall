@@ -1,6 +1,18 @@
 'use strict';
 console.log('js file is connected');
 
+// 1. data to persistently track totals voted btwn pg refreshes
+
+// 2. implement locl strg into ur current app
+
+// 3. store prdcts array into local strg as a formatted JSON string
+
+// 4. retrieve from local storage
+
+// 5. then utilize the JSON.Parse ()
+
+
+
 // As a user, I would like to display three unique products by chance so that the viewers can pick a favorite.
 
 // Create a constructor function that creates an object associated with each product, and has the following properties:
@@ -10,33 +22,47 @@ console.log('js file is connected');
 
 
 function Product(pname, imgsrc) {
-    this.pname= pname,
-    this.imgsrc = imgsrc,
-    this.timesshown = 0
+    this.pname= pname;
+    this.imgsrc = imgsrc;
+    
+// add persistence
+
+if (timesClicked) {
+    this.timesClicked = timesClicked;
+} else {
+    this.timesClicked = 0;
+}
+
+
+    this.timesClicked = 0;
+
+    this.timesshown = 0;
+
+
 };
 
 // Create an algorithm that will randomly generate three unique product images from the images
 //  directory and display them side-by-side-by-side.
 
-new = Product('bag', 'assets/bag.jpg')
-new = Product('banana', 'assets/banana.jpg')
-new = Product('bathroom', 'assets/bathroom.jpg')
-new = Product('boots', 'assets/boots.jpg')
-new = Product('breakfast', 'assets/breakfast.jpg')
-new = Product('bubblegum', 'assets/bubblegum.jpg')
-new = Product('chair', 'assets/chair.jpg')
-new = Product('cthulhu', 'assets/cthulhu.jpg')
-new = Product('dog-duck', 'assets/dog-duck.jpg')
-new = Product('dragon', 'assets/dragon.jpg')
-new = Product('pen', 'assets/pen.jpg')
-new = Product('pet-sweep', 'assets/pet-sweep.jpg')
-new = Product('scissors', 'assets/scissors.jpg'
-new = Product('shark', 'assets/SharedWorker.jpg')
-new = Product('sweep', 'assets/sweep.png'
-new = Product('tauntaun', 'assets/tauntaun.jpg')
-new = Product('unicorn', 'assets/unicorn.jpg')
-new = Product('water-can', 'assets/water-can.jpg')
-new = Product('wine-glass', 'assets/wine-glass.jpg')
+new = Product('bag', 'assets/bag.jpg');
+new = Product('banana', 'assets/banana.jpg');
+new = Product('bathroom', 'assets/bathroom.jpg');
+new = Product('boots', 'assets/boots.jpg');
+new = Product('breakfast', 'assets/breakfast.jpg');
+new = Product('bubblegum', 'assets/bubblegum.jpg');
+new = Product('chair', 'assets/chair.jpg');
+new = Product('cthulhu', 'assets/cthulhu.jpg');
+new = Product('dog-duck', 'assets/dog-duck.jpg');
+new = Product('dragon', 'assets/dragon.jpg');
+new = Product('pen', 'assets/pen.jpg');
+new = Product('pet-sweep', 'assets/pet-sweep.jpg');
+new = Product('scissors', 'assets/scissors.jpg');
+new = Product('shark', 'assets/SharedWorker.jpg');
+new = Product('sweep', 'assets/sweep.png');
+new = Product('tauntaun', 'assets/tauntaun.jpg');
+new = Product('unicorn', 'assets/unicorn.jpg');
+new = Product('water-can', 'assets/water-can.jpg');
+new = Product('wine-glass', 'assets/wine-glass.jpg');
 
 
 // For each of the three images, increment its property of times it has been shown by one.
@@ -62,15 +88,15 @@ while(
     (nextProductIndex1 === productIndex1) || (nextProductIndex1 === productIndex2) || (nextProductIndex1 === productIndex3) || (nextProductIndex1 === nextProductIndex2) || (nextProductIndex1 === nextProductIndex3)){
 
 
-    nextProductIndex1 = math.floor(Math.random() * allProducts.length);
-}
+    nextProductIndex1 = math.floor(Math.random() * allProducts.length)
+};
 
 while(
-    (nextProductIndex2 === productIndex1) or (nextProductIndex2 === productIndex2) or (nextProductIndex2 === productIndex3) or (nextProductIndex2 === nextProductIndex1) or (nextProductIndex2 === nextProductIndex3){
+    (nextProductIndex2 === productIndex1) || (nextProductIndex2 === productIndex2) || (nextProductIndex2 === productIndex3) || (nextProductIndex2 === nextProductIndex1) || (nextProductIndex2 === nextProductIndex3)){
 
 
-    nextProductIndex2 = math.floor(Math.random() * allProducts.length);
-}
+    nextProductIndex2 = math.floor(Math.random() * allProducts.length)
+};
 
 while(
     (nextProductIndex3 === productIndex1) or (nextProductIndex3 === productIndex2) or (nextProductIndex3 === productIndex3) or (nextProductIndex3 === nextProductIndex1) or (nextProductIndex3 === nextProductIndex2){
@@ -96,3 +122,7 @@ while(
 
 // NOTE: Displayed product names should match the file name for the product.
 //  Example: the product represented with dog-duck.jpg should be displayed to the user as exactly “dog-duck” when the results are shown.
+
+if(totalClicks >= rounds){
+    localStorage.setItem();
+}
