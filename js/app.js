@@ -7,7 +7,7 @@ console.log('image elements', imageElements);
 let productIndex1 = 0;
 let productIndex2 = 1;
 let productIndex3 = 2;
-let rounds = 15;
+let rounds = 25;
 let allProducts = [];
 
 // 1. data to persistently track totals voted btwn pg refreshes
@@ -19,11 +19,6 @@ let allProducts = [];
 // 4. retrieve from local storage
 
 // 5. then utilize the JSON.Parse ()
-
-// Create a constructor function 
-// Name of the product
-// File path of image
-// Times the image has been shown
 
 
 function Product(pname, imgsrc) {
@@ -56,9 +51,6 @@ function getProductArray(nameOfProperty){
 
 //     this.timesShown = 0;
 // ;
-
-// Create an algorithm that will randomly generate three unique product images from the images
-//  directory and display them side-by-side-by-side.
 
 
 // let savedVoteString = localStorage.getItem('savedVotes');
@@ -115,22 +107,6 @@ function imageWasClicked(event){
         allProducts[productIndex3].timesClicked++;
     }
 
-
-// For each of the three images, increment its property of times it has been shown by one.
-
-// Attach an event listener to the section of the HTML page where the images are going to be displayed.
-
-
-
-// Once the users ‘clicks’ a product, 
-// generate three new products for the user to pick from.
-
-// As a user, I would like to track the selections made by viewers so that I can determine which products to keep for the catalog.
-
-// In the constructor function define a property to hold the number of times a product has been clicked.
-
-// After every selection by the viewer, update the newly added property to reflect if it was clicked.
-
 let nextProductIndex1 = Math.floor(Math.random() * allProducts.length);
 let nextProductIndex2 = Math.floor(Math.random() * allProducts.length);
 let nextProductIndex3 = Math.floor(Math.random() * allProducts.length);
@@ -171,7 +147,6 @@ if(totalClicks >= rounds){
 
     let asideUL = document.getElementById('Picks');
 
-// count total clicks vs rounds
 // create li tiems to show image info on clicks and display the %s
 
         for(let i = 0; i < allProducts.length; i++){
@@ -195,11 +170,7 @@ if(totalClicks >= rounds){
             imageElements[i].removeEventListener('click', imageWasClicked);
             console.log('Hello there!');
         }
-
-
-
-        
-        // runMyChartsNow();
+        runMyChartsNow();
     }
 }
 function runMyChartsNow(){
@@ -231,18 +202,14 @@ function runMyChartsNow(){
         }
     } );
 }
-
 for(let i = 0; i < imageElements.length; i ++){
     imageElements[i].addEventListener('click', imageWasClicked);
     console.log('Hello there!');
 }
-
 if(totalClicks >= rounds){
     localStorage.setItem();
 }
 
-// control the number of rounds a user is presented with so that I can control the voting session duration.
-// By default, the user should be presented with 25 rounds of voting before ending the session.
 // Keep the number of rounds in a variable to allow the number to be easily changed for debugging and testing purposes.
 
 // list item report of results after all rounds of voting have concluded so that I can evaluate which products were the most popular.
