@@ -26,7 +26,21 @@ aside {
     margin-left: 25px;
     padding: 10px;
 }
+img{
+    margin-top: 75px;
+    height: 300px;
+    width: 300px;
+}
 footer{
     text-align: center;
     margin-top: 50px;
+    background-color: darkblue;
+    color: darkgoldenrod;
+    font-size: 35px;
+    padding: 30px;
+    border-top: 10px solid rgb(26,115,216);
+}
+canvas{
+    background-color: darkgreen;
+    color: darkkhaki;
 }

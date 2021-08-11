@@ -33,7 +33,7 @@ function Product(pname, imgsrc) {
     this.timesShown = 0;
     allProducts.push(this);
 }
-console.log(allPizzas);
+console.log(allProducts);
 
 function getProductArray(nameOfProperty){
     let answer = [];
@@ -95,7 +95,7 @@ new  Product('dragon', 'assets/dragon.jpg');
 new  Product('pen', 'assets/pen.jpg');
 new  Product('pet-sweep', 'assets/pet-sweep.jpg');
 new  Product('scissors', 'assets/scissors.jpg');
-new  Product('shark', 'assets/SharedWorker.jpg');
+new  Product('shark', 'assets/Shark.jpg');
 new  Product('sweep', 'assets/sweep.png');
 new  Product('tauntaun', 'assets/tauntaun.jpg');
 new  Product('unicorn', 'assets/unicorn.jpg');
@@ -137,15 +137,15 @@ let nextProductIndex3 = Math.floor(Math.random() * allProducts.length);
 
 while(
     (nextProductIndex1 === productIndex1) || (nextProductIndex1 === productIndex2) || (nextProductIndex1 === productIndex3) || (nextProductIndex1 === nextProductIndex2) || (nextProductIndex1 === nextProductIndex3)){
-    nextProductIndex1 = math.floor(Math.random() * allProducts.length)
+    nextProductIndex1 = Math.floor(Math.random() * allProducts.length)
 }
 while(
     (nextProductIndex2 === productIndex1) || (nextProductIndex2 === productIndex2) || (nextProductIndex2 === productIndex3) || (nextProductIndex2 === nextProductIndex1) || (nextProductIndex2 === nextProductIndex3)){
-    nextProductIndex2 = math.floor(Math.random() * allProducts.length)
+    nextProductIndex2 = Math.floor(Math.random() * allProducts.length)
 }
 while(
     (nextProductIndex3 === productIndex1) || (nextProductIndex3 === productIndex2) || (nextProductIndex3 === productIndex3) || (nextProductIndex3 === nextProductIndex1) || (nextProductIndex3 === nextProductIndex2)){
-    nextProductIndex3 = math.floor(Math.random() * allProducts.length);
+    nextProductIndex3 = Math.floor(Math.random() * allProducts.length);
 }
 
 productIndex1 = nextProductIndex1;
@@ -183,6 +183,7 @@ if(totalClicks >= rounds){
             let math;
             if(allProducts[i].timesClicked === 0){
                 math = `Zero click and shown ${allProducts[i].timesShown} times. Must be trash.`;
+                console.log('math', math)
             } else {
                 math = Math.round(((allProducts[i]['timesClicked']/ allProducts[i]['timesShwon']).toFixed(2) * 100)) + '%';
             }
@@ -194,10 +195,14 @@ if(totalClicks >= rounds){
             imageElements[i].removeEventListener('click', imageWasClicked);
             console.log('Hello there!');
         }
-        runMyChartsNow();
+
+
+
+        
+        // runMyChartsNow();
     }
 }
-Function runMyChartsNow(){
+function runMyChartsNow(){
     let ctx = document.getElementById('myChart').getContext('2d');
 
     new Chart(ctx, {
