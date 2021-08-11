@@ -3,7 +3,30 @@
 }
 
 body {
-    width: 1400px;
+    width: 1250px;
     margin: 0 auto;
-    background-color: aqua;
+    background-color: rgb(251, 255, 0);
+}
+header{
+    text-align: center;
+    font-size: 50px;
 } 
+main{
+    text-align: center;
+    background-color: rgb(160, 110, 110);
+    padding-bottom: 25px;
+    margin-bottom: 25px;
+    overflow: hidden;
+}
+aside {
+    height: 500px;
+    width: 550px;
+    background-color: crimson;
+    float: left;
+    margin-left: 25px;
+    padding: 10px;
+}
+footer{
+    text-align: center;
+    margin-top: 50px;
+}
