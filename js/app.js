@@ -1,6 +1,8 @@
 'use strict';
 console.log('js file is connected');
 
+let imageElements
+
 // 1. data to persistently track totals voted btwn pg refreshes
 
 // 2. implement locl strg into ur current app
@@ -44,25 +46,46 @@ if (timesClicked) {
 // Create an algorithm that will randomly generate three unique product images from the images
 //  directory and display them side-by-side-by-side.
 
-new = Product('bag', 'assets/bag.jpg');
-new = Product('banana', 'assets/banana.jpg');
-new = Product('bathroom', 'assets/bathroom.jpg');
-new = Product('boots', 'assets/boots.jpg');
-new = Product('breakfast', 'assets/breakfast.jpg');
-new = Product('bubblegum', 'assets/bubblegum.jpg');
-new = Product('chair', 'assets/chair.jpg');
-new = Product('cthulhu', 'assets/cthulhu.jpg');
-new = Product('dog-duck', 'assets/dog-duck.jpg');
-new = Product('dragon', 'assets/dragon.jpg');
-new = Product('pen', 'assets/pen.jpg');
-new = Product('pet-sweep', 'assets/pet-sweep.jpg');
-new = Product('scissors', 'assets/scissors.jpg');
-new = Product('shark', 'assets/SharedWorker.jpg');
-new = Product('sweep', 'assets/sweep.png');
-new = Product('tauntaun', 'assets/tauntaun.jpg');
-new = Product('unicorn', 'assets/unicorn.jpg');
-new = Product('water-can', 'assets/water-can.jpg');
-new = Product('wine-glass', 'assets/wine-glass.jpg');
+let savedVoteString = localStorage.getItem('savedVotes');
+console.log('object string', savedVoteString);
+
+// once we have objects we run them thru constrctr function so they are vote?/product? objects
+
+if(savedVoteString){
+    let arrayOfNotProductObject = JSON.parse(savedVoteString);
+    console.log('if condition what is our type ', arrayOfNotProductObject);
+        for(let j = 0; j < arrayOfNotProductObject.length; j++){
+          new Product(
+              arrayOfNotProductObject[j].Pname,
+              arrayOfNotProductObject[j].imgsrc,
+              arrayOfNotProductObject[j].timesClicked,
+              arrayOfNotProductObject[j].timesshown
+
+           );  
+        }
+}
+
+
+
+new  Product('bag', 'assets/bag.jpg');
+new  Product('banana', 'assets/banana.jpg');
+new  Product('bathroom', 'assets/bathroom.jpg');
+new  Product('boots', 'assets/boots.jpg');
+new  Product('breakfast', 'assets/breakfast.jpg');
+new  Product('bubblegum', 'assets/bubblegum.jpg');
+new  Product('chair', 'assets/chair.jpg');
+new  Product('cthulhu', 'assets/cthulhu.jpg');
+new  Product('dog-duck', 'assets/dog-duck.jpg');
+new  Product('dragon', 'assets/dragon.jpg');
+new  Product('pen', 'assets/pen.jpg');
+new  Product('pet-sweep', 'assets/pet-sweep.jpg');
+new  Product('scissors', 'assets/scissors.jpg');
+new  Product('shark', 'assets/SharedWorker.jpg');
+new  Product('sweep', 'assets/sweep.png');
+new  Product('tauntaun', 'assets/tauntaun.jpg');
+new  Product('unicorn', 'assets/unicorn.jpg');
+new  Product('water-can', 'assets/water-can.jpg');
+new  Product('wine-glass', 'assets/wine-glass.jpg');
 
 
 // For each of the three images, increment its property of times it has been shown by one.
@@ -99,7 +122,7 @@ while(
 };
 
 while(
-    (nextProductIndex3 === productIndex1) or (nextProductIndex3 === productIndex2) or (nextProductIndex3 === productIndex3) or (nextProductIndex3 === nextProductIndex1) or (nextProductIndex3 === nextProductIndex2){
+    (nextProductIndex3 === productIndex1) || (nextProductIndex3 === productIndex2) || (nextProductIndex3 === productIndex3) || (nextProductIndex3 === nextProductIndex1) || (nextProductIndex3 === nextProductIndex2)){
 
 
     nextProductIndex3 = math.floor(Math.random() * allProducts.length);
