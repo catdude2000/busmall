@@ -1,0 +1,9 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    width: 1400px;
+    margin: 0 auto;
+    background-color: aqua;
+} 
