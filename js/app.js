@@ -50,7 +50,7 @@ function getProductArray(nameOfProperty){
 //     this.timesClicked = 0;
 
 //     this.timesShown = 0;
-// ;
+;
 
 
 // let savedVoteString = localStorage.getItem('savedVotes');
@@ -149,20 +149,20 @@ if(totalClicks >= rounds){
 
 // create li tiems to show image info on clicks and display the %s
 
-        for(let i = 0; i < allProducts.length; i++){
+        for(let i = 0; i < allProducts.length; i ++){
             let picksListItem = document.createElement('li');
-            picksListItem.textContent =   `${allProducts[i].name} was clicked on ${allProducts[i].timesClicked} times and was shown ${allProducts[i].timesShown} times `;
+            picksListItem.textContent =   `${allProducts[i].pname} was clicked on ${allProducts[i].timesClicked} times and was shown ${allProducts[i].timesShown} times `;
             asideUL.appendChild(picksListItem);
 
             let percentageListItem = document.createElement('li');
             let math;
             if(allProducts[i].timesClicked === 0){
-                math = `Zero click and shown ${allProducts[i].timesShown} times. Must be trash.`;
+                math = `Zero click and shown ${allProducts[i].timesShown} times. We'll work on it!.`;
                 console.log('math', math)
             } else {
                 math = Math.round(((allProducts[i]['timesClicked']/ allProducts[i]['timesShwon']).toFixed(2) * 100)) + '%';
             }
-            percentageListItem.textContent = `${allProducts[i].name} percentage of times clicked on vs times shown is ` + math;
+            percentageListItem.textContent = `${allProducts[i].pname} percentage of times clicked on vs times shown is ` + math;
             asideUL.appendChild(percentageListItem);
         }
 
@@ -184,10 +184,20 @@ function runMyChartsNow(){
                 label: '# of votes',
                 data: getProductArray('timesClicked'),
                 backgroundColor: [
-
+                    'rgba(255, 99, 132, 0.2)',
+                    'rgba(54, 162, 235, 0.2)',
+                    'rgba(255, 206, 86, 0.2)',
+                    'rgba(75, 192, 192, 0.2)',
+                    'rgba(153, 102, 255, 0.2)',
+                    'rgba(255, 159, 64, 0.2)'
                 ],
                 borderColor: [
-
+                    'rgba(255, 99, 132, 1)',
+                    'rgba(54, 162, 235, 1)',
+                    'rgba(255, 206, 86, 1)',
+                    'rgba(75, 192, 192, 1)',
+                    'rgba(153, 102, 255, 1)',
+                    'rgba(255, 159, 64, 1)'
 
                 ],
                 borderWidth: 1
