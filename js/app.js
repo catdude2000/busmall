@@ -23,19 +23,6 @@ function Product(pname, imgsrc, timesClicked, timesShown) {
     this.timesClicked = 0;
     this.timesShown = 0;
     allProducts.push(this);
-}
-console.log(allProducts);
-
-function getProductArray(nameOfProperty){
-    let answer = [];
-    for(let i = 0; i < allProducts.length; i++){
-        answer[i] = allProducts[i][nameOfProperty];
-    }
-    console.log(answer);
-    return answer;
-}
-// add persistence
-
 if (timesClicked) {
     this.timesClicked = timesClicked;
 } else {
@@ -47,6 +34,20 @@ if(timesShown) {
     this.timesShown = 0;
 }
 allProducts.push(this);
+}
+
+
+console.log(allProducts);
+
+function getProductArray(nameOfProperty){
+    let answer = [];
+    for(let i = 0; i < allProducts.length; i++){
+        answer[i] = allProducts[i][nameOfProperty];
+    }
+    console.log(answer);
+    return answer;
+}
+
 
 let savedVoteString = localStorage.getItem('savedVotes');
 console.log('object string', savedVoteString);
@@ -138,6 +139,9 @@ imageElements[2].src = allProducts[productIndex3].imgsrc;
 allProducts[productIndex3].timesShown++;
 
 if(totalClicks >= rounds){
+    localStorage.setItem('savedVotes', json.stringify(allProducts));
+}
+
     let footerElement = document.getElementsByTagName('footer');
     if(footerElement.firstChildElement){
         footerElement.firstChildElement.remove();
@@ -171,7 +175,7 @@ if(totalClicks >= rounds){
         }
         runMyChartsNow();
     }
-}
+
 function runMyChartsNow(){
     let ctx = document.getElementById('myChart').getContext('2d');
 
@@ -219,15 +223,20 @@ if(totalClicks >= rounds){
     localStorage.setItem();
 }
 
-// Keep the number of rounds in a variable to allow the number to be easily changed for debugging and testing purposes.
-
-// list item report of results after all rounds of voting have concluded so that I can evaluate which products were the most popular.
-
-// Create a property attached to the constructor function itself that keeps track of all the products that are currently being considered.
-
 // After voting rounds remove the event listeners on the product.
 
-// Add a button with the text View Results, which when clicked displays the list of all the products followed by the votes received, and number of times
-//  seen for each. Example: banana had 3 votes, and was seen 5 times.
 
 // NOTE: Displayed product names should match the file name for the product.
+
+// let nameForm = document.getElementById('nameForm');
+
+// nameForm.addEventListener('submit', function(event){
+
+//     event.preventDefault();
+//     // console.log('name form is listening')
+//     let nameUserProvided = document.getElementById('name').nodeValue;
+//     console.log('user name', nameUserProvided);
+// localStorage.setItem('userName', nameUserProvided);
+//     nameForm.textContent = 'Welcome to my site, ' + nameUserProvided;
+// });
+
