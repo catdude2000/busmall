@@ -19,7 +19,6 @@ main{
     overflow: hidden;
 }
 aside {
-    height: 500px;
     width: 550px;
     background-color: crimson;
     float: left;
@@ -43,4 +42,7 @@ footer{
 canvas{
     background-color: darkgreen;
     color: darkkhaki;
+}
+li{
+    padding: 10px;
 }

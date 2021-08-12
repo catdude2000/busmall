@@ -11,17 +11,13 @@ let rounds = 25;
 let allProducts = [];
 
 // 1. data to persistently track totals voted btwn pg refreshes
-
 // 2. implement locl strg into ur current app
-
 // 3. store prdcts array into local strg as a formatted JSON string
-
 // 4. retrieve from local storage
-
 // 5. then utilize the JSON.Parse ()
 
 
-function Product(pname, imgsrc) {
+function Product(pname, imgsrc, timesClicked, timesShown) {
     this.pname= pname;
     this.imgsrc = imgsrc;
     this.timesClicked = 0;
@@ -45,13 +41,12 @@ if (timesClicked) {
 } else {
     this.timesClicked = 0;
 }
-
-
-    this.timesClicked = 0;
-
+if(timesShown) {
+    this.timesShown = timesShown;
+} else {
     this.timesShown = 0;
-
-
+}
+allProducts.push(this);
 
 let savedVoteString = localStorage.getItem('savedVotes');
 console.log('object string', savedVoteString);
