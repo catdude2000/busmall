@@ -40,38 +40,38 @@ function getProductArray(nameOfProperty){
 }
 // add persistence
 
-// if (timesClicked) {
-//     this.timesClicked = timesClicked;
-// } else {
-//     this.timesClicked = 0;
-// }
+if (timesClicked) {
+    this.timesClicked = timesClicked;
+} else {
+    this.timesClicked = 0;
+}
 
 
-//     this.timesClicked = 0;
+    this.timesClicked = 0;
 
-//     this.timesShown = 0;
-;
+    this.timesShown = 0;
 
 
-// let savedVoteString = localStorage.getItem('savedVotes');
-// console.log('object string', savedVoteString);
+
+let savedVoteString = localStorage.getItem('savedVotes');
+console.log('object string', savedVoteString);
 
 
 // once we have objects we run them thru constrctr function so they are vote?/product? objects
 
-// if(savedVoteString){
-//     let arrayOfNotProductObject = JSON.parse(savedVoteString);
-//     console.log('if condition what is our type ', arrayOfNotProductObject);
-//         for(let j = 0; j < arrayOfNotProductObject.length; j++){
-//           new Product(
-//               arrayOfNotProductObject[j].Pname,
-//               arrayOfNotProductObject[j].imgsrc,
-//               arrayOfNotProductObject[j].timesClicked,
-//               arrayOfNotProductObject[j].timesShown
+if(savedVoteString){
+    let arrayOfNotProductObject = JSON.parse(savedVoteString);
+    console.log('if condition what is our type ', arrayOfNotProductObject);
+        for(let j = 0; j < arrayOfNotProductObject.length; j++){
+          new Product(
+              arrayOfNotProductObject[j].Pname,
+              arrayOfNotProductObject[j].imgsrc,
+              arrayOfNotProductObject[j].timesClicked,
+              arrayOfNotProductObject[j].timesShown
 
-//            );  
-//         }
-// }
+           );  
+        }
+} else {
 
 
 new  Product('bag', 'assets/bag.jpg');
@@ -93,6 +93,10 @@ new  Product('tauntaun', 'assets/tauntaun.jpg');
 new  Product('unicorn', 'assets/unicorn.jpg');
 new  Product('water-can', 'assets/water-can.jpg');
 new  Product('wine-glass', 'assets/wine-glass.jpg');
+}
+allProducts[0].timesShown = 1;
+allProducts[1].timesShown = 1;
+
 
 let totalClicks = 0;
 
@@ -160,7 +164,7 @@ if(totalClicks >= rounds){
                 math = `Zero click and shown ${allProducts[i].timesShown} times. We'll work on it!.`;
                 console.log('math', math)
             } else {
-                math = Math.round(((allProducts[i]['timesClicked']/ allProducts[i]['timesShwon']).toFixed(2) * 100)) + '%';
+                math = Math.round(((allProducts[i]['timesClicked']/ allProducts[i]['timesShown']).toFixed(2) * 100)) + '%';
             }
             percentageListItem.textContent = `${allProducts[i].pname} percentage of times clicked on vs times shown is ` + math;
             asideUL.appendChild(percentageListItem);
