@@ -4,14 +4,12 @@ Busmall app
 
 ## Bus Mall
 
-I build an app with a direct and powerful purpose. It does all of the things that it accomplishes well. I should describe the purpose and functionality so those that visit my README understand the app
+This is an app that lets people vote on one of three products and then generates three more products each time one is clicked.  It keeps track of the answer data and shows it in list form as well as in a chart.  It also stores the data locally.
 
 ### Author: Michael Pace
 
 ### Links and Resources
-* [submission PR](http://xyz.com)
-* Any Links you used as reference
+* [Link](https://catdude2000.github.io/busmall/)
 
 ### Reflections and Comments
-* Consider including the answers to your daily journal and submission questions here
-* This is also a good place to reflect on the tools and resources used and learned
+This was an interesting project.  It took me about 5.5 hours.  I enjoyed learning how to randomize images and how to populate a chart with user data.
