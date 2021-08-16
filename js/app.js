@@ -11,32 +11,34 @@ let rounds = 25;
 let allProducts = [];
 
 // 1. data to persistently track totals voted btwn pg refreshes
+
 // 2. implement locl strg into ur current app
+
 // 3. store prdcts array into local strg as a formatted JSON string
+
 // 4. retrieve from local storage
+
 // 5. then utilize the JSON.Parse ()
 
 
 function Product(pname, imgsrc, timesClicked, timesShown) {
     this.pname= pname;
     this.imgsrc = imgsrc;
-    this.timesClicked = 0;
-    this.timesShown = 0;
+    // this.timesClicked = 0;
+    // this.timesShown = 0;
+    // allProducts.push(this);
+    if (timesClicked) {
+        this.timesClicked = timesClicked;
+    } else {
+        this.timesClicked = 0;
+    }
+    if(timesShown) {
+        this.timesShown = timesShown;
+    } else {
+        this.timesShown = 0;
+    }
     allProducts.push(this);
-if (timesClicked) {
-    this.timesClicked = timesClicked;
-} else {
-    this.timesClicked = 0;
 }
-if(timesShown) {
-    this.timesShown = timesShown;
-} else {
-    this.timesShown = 0;
-}
-allProducts.push(this);
-}
-
-
 console.log(allProducts);
 
 function getProductArray(nameOfProperty){
@@ -49,9 +51,8 @@ function getProductArray(nameOfProperty){
 }
 
 
-let savedVoteString = localStorage.getItem('savedVotes');
+let savedVoteString = localStorage.getItem('picks');
 console.log('object string', savedVoteString);
-
 
 // once we have objects we run them thru constrctr function so they are vote?/product? objects
 
@@ -60,11 +61,10 @@ if(savedVoteString){
     console.log('if condition what is our type ', arrayOfNotProductObject);
         for(let j = 0; j < arrayOfNotProductObject.length; j++){
           new Product(
-              arrayOfNotProductObject[j].Pname,
+              arrayOfNotProductObject[j].pname,
               arrayOfNotProductObject[j].imgsrc,
               arrayOfNotProductObject[j].timesClicked,
               arrayOfNotProductObject[j].timesShown
-
            );  
         }
 } else {
@@ -94,6 +94,7 @@ allProducts[0].timesShown = 1;
 allProducts[1].timesShown = 1;
 
 
+
 let totalClicks = 0;
 
 function imageWasClicked(event){
@@ -111,6 +112,8 @@ let nextProductIndex1 = Math.floor(Math.random() * allProducts.length);
 let nextProductIndex2 = Math.floor(Math.random() * allProducts.length);
 let nextProductIndex3 = Math.floor(Math.random() * allProducts.length);
 
+console.log('next product index one is from random ', nextProductIndex1)
+
 while(
     (nextProductIndex1 === productIndex1) || (nextProductIndex1 === productIndex2) || (nextProductIndex1 === productIndex3) || (nextProductIndex1 === nextProductIndex2) || (nextProductIndex1 === nextProductIndex3)){
     nextProductIndex1 = Math.floor(Math.random() * allProducts.length)
@@ -127,6 +130,7 @@ while(
 productIndex1 = nextProductIndex1;
 productIndex2 = nextProductIndex2;
 productIndex3 = nextProductIndex3;
+console.log('now the product Index at 1 after new assignment', productIndex1);
 
 
 imageElements[0].src = allProducts[productIndex1].imgsrc;
@@ -139,14 +143,16 @@ imageElements[2].src = allProducts[productIndex3].imgsrc;
 allProducts[productIndex3].timesShown++;
 
 if(totalClicks >= rounds){
-    localStorage.setItem('savedVotes', json.stringify(allProducts));
-}
+    localStorage.setItem('savedVotes', JSON.stringify(allProducts));
+    // let asideUL = document.getElementById('voteResults');
 
-    let footerElement = document.getElementsByTagName('footer');
-    if(footerElement.firstChildElement){
-        footerElement.firstChildElement.remove();
-    }
-    footerElement.textContent = 'Good choices!';
+
+
+    // let footerElement = document.getElementsByTagName('footer');
+    // if(footerElement.firstChildElement){
+    //     footerElement.firstChildElement.remove();
+    // }
+    // footerElement.textContent = 'Good choices!';
 
     let asideUL = document.getElementById('Picks');
 
@@ -160,7 +166,7 @@ if(totalClicks >= rounds){
             let percentageListItem = document.createElement('li');
             let math;
             if(allProducts[i].timesClicked === 0){
-                math = `Zero click and shown ${allProducts[i].timesShown} times. We'll work on it!.`;
+                math = `zero clicks and shown ${allProducts[i].timesShown} times. We'll work on it!.`;
                 console.log('math', math)
             } else {
                 math = Math.round(((allProducts[i]['timesClicked']/ allProducts[i]['timesShown']).toFixed(2) * 100)) + '%';
@@ -175,6 +181,7 @@ if(totalClicks >= rounds){
         }
         runMyChartsNow();
     }
+}
 
 function runMyChartsNow(){
     let ctx = document.getElementById('myChart').getContext('2d');
@@ -219,24 +226,6 @@ for(let i = 0; i < imageElements.length; i ++){
     imageElements[i].addEventListener('click', imageWasClicked);
     console.log('Hello there!');
 }
-if(totalClicks >= rounds){
-    localStorage.setItem();
-}
-
-// After voting rounds remove the event listeners on the product.
-
-
-// NOTE: Displayed product names should match the file name for the product.
-
-// let nameForm = document.getElementById('nameForm');
-
-// nameForm.addEventListener('submit', function(event){
-
-//     event.preventDefault();
-//     // console.log('name form is listening')
-//     let nameUserProvided = document.getElementById('name').nodeValue;
-//     console.log('user name', nameUserProvided);
-// localStorage.setItem('userName', nameUserProvided);
-//     nameForm.textContent = 'Welcome to my site, ' + nameUserProvided;
-// });
-
+// if(totalClicks >= rounds){
+//     localStorage.setItem();
+// }
