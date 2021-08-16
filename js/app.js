@@ -1,6 +1,8 @@
 'use strict';
 console.log('js file is connected');
 
+// Create global variables.
+
 let imageElements = document.getElementsByTagName('img');
 console.log('image elements', imageElements);
 
@@ -10,23 +12,12 @@ let productIndex3 = 2;
 let rounds = 25;
 let allProducts = [];
 
-// 1. data to persistently track totals voted btwn pg refreshes
-
-// 2. implement locl strg into ur current app
-
-// 3. store prdcts array into local strg as a formatted JSON string
-
-// 4. retrieve from local storage
-
-// 5. then utilize the JSON.Parse ()
-
+// Create product function
 
 function Product(pname, imgsrc, timesClicked, timesShown) {
     this.pname= pname;
     this.imgsrc = imgsrc;
-    // this.timesClicked = 0;
-    // this.timesShown = 0;
-    // allProducts.push(this);
+
     if (timesClicked) {
         this.timesClicked = timesClicked;
     } else {
@@ -41,6 +32,8 @@ function Product(pname, imgsrc, timesClicked, timesShown) {
 }
 console.log(allProducts);
 
+// Create array
+
 function getProductArray(nameOfProperty){
     let answer = [];
     for(let i = 0; i < allProducts.length; i++){
@@ -50,11 +43,11 @@ function getProductArray(nameOfProperty){
     return answer;
 }
 
+// Set up local storage
 
 let savedVoteString = localStorage.getItem('picks');
 console.log('object string', savedVoteString);
 
-// once we have objects we run them thru constrctr function so they are vote?/product? objects
 
 if(savedVoteString){
     let arrayOfNotProductObject = JSON.parse(savedVoteString);
@@ -69,6 +62,7 @@ if(savedVoteString){
         }
 } else {
 
+// Create products
 
 new  Product('bag', 'assets/bag.jpg');
 new  Product('banana', 'assets/banana.jpg');
@@ -94,8 +88,9 @@ allProducts[0].timesShown = 1;
 allProducts[1].timesShown = 1;
 
 
-
 let totalClicks = 0;
+
+// Create image Randomizer
 
 function imageWasClicked(event){
     totalClicks++;
@@ -132,6 +127,7 @@ productIndex2 = nextProductIndex2;
 productIndex3 = nextProductIndex3;
 console.log('now the product Index at 1 after new assignment', productIndex1);
 
+// Create times shown concanation
 
 imageElements[0].src = allProducts[productIndex1].imgsrc;
 allProducts[productIndex1].timesShown++;
@@ -144,19 +140,10 @@ allProducts[productIndex3].timesShown++;
 
 if(totalClicks >= rounds){
     localStorage.setItem('savedVotes', JSON.stringify(allProducts));
-    // let asideUL = document.getElementById('voteResults');
-
-
-
-    // let footerElement = document.getElementsByTagName('footer');
-    // if(footerElement.firstChildElement){
-    //     footerElement.firstChildElement.remove();
-    // }
-    // footerElement.textContent = 'Good choices!';
-
+  
     let asideUL = document.getElementById('Picks');
 
-// create li tiems to show image info on clicks and display the %s
+// Create pick text/data
 
         for(let i = 0; i < allProducts.length; i ++){
             let picksListItem = document.createElement('li');
@@ -182,6 +169,8 @@ if(totalClicks >= rounds){
         runMyChartsNow();
     }
 }
+
+// Create chart function
 
 function runMyChartsNow(){
     let ctx = document.getElementById('myChart').getContext('2d');
@@ -226,6 +215,3 @@ for(let i = 0; i < imageElements.length; i ++){
     imageElements[i].addEventListener('click', imageWasClicked);
     console.log('Hello there!');
 }
-// if(totalClicks >= rounds){
-//     localStorage.setItem();
-// }
