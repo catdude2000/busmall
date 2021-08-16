@@ -3,14 +3,21 @@
 }
 
 body {
-    width: 1250px;
+    width: auto;
     margin: 0 auto;
-    background-color: rgb(251, 255, 0);
+    background-color: rgb(225, 226, 158);
 }
 header{
     text-align: center;
     font-size: 50px;
+}
+h2{
+    font-size: 35px;
 } 
+h1{
+    color: aqua;
+    font-size: 40px;
+}
 main{
     text-align: center;
     background-color: rgb(160, 110, 110);
@@ -33,11 +40,11 @@ img{
 footer{
     text-align: center;
     margin-top: 50px;
-    background-color: darkblue;
+    /* background-color: darkblue; */
     color: darkgoldenrod;
     font-size: 35px;
     padding: 30px;
-    border-top: 10px solid rgb(26,115,216);
+    /* border-top: 10px solid rgb(26,115,216); */
 }
 canvas{
     background-color: darkgreen;

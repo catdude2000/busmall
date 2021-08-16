@@ -83,7 +83,7 @@ new  Product('dragon', 'assets/dragon.jpg');
 new  Product('pen', 'assets/pen.jpg');
 new  Product('pet-sweep', 'assets/pet-sweep.jpg');
 new  Product('scissors', 'assets/scissors.jpg');
-new  Product('shark', 'assets/Shark.jpg');
+new  Product('shark', 'assets/shark.jpg');
 new  Product('sweep', 'assets/sweep.png');
 new  Product('tauntaun', 'assets/tauntaun.jpg');
 new  Product('unicorn', 'assets/unicorn.jpg');
